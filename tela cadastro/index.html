@@ -3,11 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
     <script src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
 </head>
 <body>
-    
+    <main>
+        <div class="pai" id="pai">
+            <h1>Cadastro</h1>
+            <div class="campo">
+               <input type="text" placeholder="Nome de Usuario" id="name" required>
+               <input type="text" placeholder="Email" id="email" required>
+               <input type="text" placeholder="Senha" id="password" required>
+               <!-- <input type="text" placeholder="Chave de recuperaçao de senha" id="key" required> -->
+               <input type="text" placeholder="url da foto de perfil" id="img" required>
+               <div class="checkbox">
+                    <p>Deseja ser premium?</p>
+                    <input type="checkbox" name="box" id="box">
+               </div>
+            </div>
+            <div class="button" id="button">
+                <a href="#">
+                    <button>Cadastrar</button>
+                </a>
+            </div>
+            <div class="backLogin">
+                <div class="final">
+                    <p>Já tem uma conta?</p>
+                    <a href="../tela login/index.html">Conecte-se</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
 </body>
 </html>
