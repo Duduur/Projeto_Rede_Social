@@ -1,27 +1,29 @@
 'use strict'
 
-const  button = document.getElementById('button')
+
+document.addEventListener("DOMContentLoaded", function (){
+
+    const  button = document.getElementById('button')
 
 function dadosDeCadastro(){
-    const nome = document.getElementById('name').value
-    const email = document.getElementById('email').value
-    const senha = document.getElementById('password').value
-    const imagemPerfil = document.getElementById('img').value
+       const nome = document.getElementById('nome').valeus;
+       const email = document.getElementById('email').valeus;
+       const senha = document.getElementById('password').valeus;
+       const premium = document.getElementById('box').valeus;
+       const imagemPerfil = document.getElementById('img').valeus;
 
-    const premium = document.getElementById('box').checked ? 1 : 0
-    
-    const jsonDados = {
-        nome: nome,
-        email: email,
-        senha: senha,
-        premium: checkbox,
-        imagemPerfil: img
-    }
-
-    return jsonDados
+       return{
+            nome: nome,
+            email: email,
+            senha: senha,
+            premium: premium,
+            imagemPerfil: imagemPerfil
+       }
 }
 
 async function cadastrarUsuario() {
+
+        const cadastrarUser = dadosDeCadastro()
     try {
         const response = await fetch('https://back-spider.vercel.app/user/cadastrarUser', {
             method: 'POST',
@@ -38,3 +40,5 @@ async function cadastrarUsuario() {
 }
 
 button.addEventListener('click', cadastrarUsuario)
+})
+
