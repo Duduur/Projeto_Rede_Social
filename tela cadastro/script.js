@@ -1,52 +1,54 @@
-'use strict'
+'use strict';
 
+document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById('button'); // Pega o botão dentro do DOM carregado
 
-document.addEventListener("DOMContentLoaded", function (){
+    async function cadastrarUser() { 
+        try {
+            const nome = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('password').value;
+            const imagemPerfil = document.getElementById('img').value;
+            const recuperacaoSenha = document.getElementById('key').value;
 
-    const  button = document.getElementById('button')
-
-function dadosDeCadastro(){
-       const nome = document.getElementById('nome').valeus;
-       const email = document.getElementById('email').valeus;
-       const senha = document.getElementById('password').valeus;
-       const premium = document.getElementById('box').valeus;
-       const imagemPerfil = document.getElementById('img').valeus;
-
-       return{
-            nome: nome,
-            email: email,
-            senha: senha,
-            premium: premium,
-            imagemPerfil: imagemPerfil
-       }
-}
-
-async function cadastrarUsuario() {
-
-        const cadastrarUser = async () => {
-            try {
-
-                let  url = "'https://back-spider.vercel.app/user/cadastrarUser'"
-               
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json', // Especifica que estamos enviando um JSON
-                    },
-                    body: JSON.stringify(dadosDeCadastro()), // Transforma o objeto em uma string JSON
-                }
-                const response = await fetch('https://back-spider.vercel.app/user/cadastrarUser',)
-
-                return response
-        
-            } catch (error) {
-                
+            if (!nome || !email || !senha || !imagemPerfil || !recuperacaoSenha) {
+                alert("Todos os campos são obrigatórios!");
+                return null;
             }
-            
-        }
-        }
-    
 
-button.addEventListener('click', cadastrarUsuario)
-})
+            let url = "https://back-spider.vercel.app/user/cadastrarUser";
 
+            const data = {
+                nome: nome,
+                email: email,
+                senha: senha,
+                premium: '1',
+                imagemPerfil: imagemPerfil,
+                senhaRecuperacao: recuperacaoSenha 
+            };
+
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data), // Transforma o objeto em uma string JSON
+            };
+
+            const response = await fetch(url, options);
+            const result = await response.json(); // Pega o JSON da resposta
+
+            if (response.status === 201) {
+                alert("Cadastro realizado com sucesso!");
+            } else {
+                alert(`Erro: ${result.message || "Algo deu errado"}`);
+            }
+            return response;
+        } catch (error) {
+            console.error(error);
+            alert("Erro ao cadastrar usuário!");
+        }
+    }
+
+    button.addEventListener('click', cadastrarUser);
+});

@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pr-br">
 <head>
     <meta charset="UTF-8">
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth-Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <title>EarthChat</title>
 </head>
 <body>
-    
+    <main>
+        <div class="pai"id = "card">
+            <img src="./img/user.png" alt="">
+            <h1> LOGIN</h1> 
+            <div class="campo">
+                <input type="text" placeholder="Email" id="email" required>
+                <input type="text" placeholder="Senha" id="password" required>
+                <button type="olho" id="senhaEscondida">👁️</button>
+            </div>
+            <a class="esqueceu" href="#">Esqueceu sua senha?</a>
+            <button class="botaoLogin" id="botao">Conecte-se</button>
+        </div>
+        <div class="pai2">
+            <p>Não tem uma conta?</p>
+            <a class="cadastroVoltar" href="../tela cadastro/">Cadastre-se</a>
+        </div>
+    </main>
 </body>
 </html>
