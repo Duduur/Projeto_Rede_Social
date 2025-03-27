@@ -23,21 +23,29 @@ function dadosDeCadastro(){
 
 async function cadastrarUsuario() {
 
-        const cadastrarUser = dadosDeCadastro()
-    try {
-        const response = await fetch('https://back-spider.vercel.app/user/cadastrarUser', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json', // Especifica que estamos enviando um JSON
-            },
-            body: JSON.stringify(dadosDeCadastro()), // Transforma o objeto em uma string JSON
-        });
+        const cadastrarUser = async () => {
+            try {
 
-    } catch (error) {
+                let  url = "'https://back-spider.vercel.app/user/cadastrarUser'"
+               
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', // Especifica que estamos enviando um JSON
+                    },
+                    body: JSON.stringify(dadosDeCadastro()), // Transforma o objeto em uma string JSON
+                }
+                const response = await fetch('https://back-spider.vercel.app/user/cadastrarUser',)
+
+                return response
         
-    }
+            } catch (error) {
+                
+            }
+            
+        }
+        }
     
-}
 
 button.addEventListener('click', cadastrarUsuario)
 })
