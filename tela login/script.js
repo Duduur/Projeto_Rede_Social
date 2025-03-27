@@ -58,7 +58,7 @@ const senhaVisivel = () => {
     
     if (senhaInput.type === "password") {
         senhaInput.type = "text";
-        escondido.textContent = "";
+        escondido.textContent = "🙈";
     } else {
         senhaInput.type = "password";
         escondido.textContent = "👁️";
