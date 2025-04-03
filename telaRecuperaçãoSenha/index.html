@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
     <script src="script.js"></script>
     <title>Recuperação de senha</title>
 </head>
 <body>
     <main></main>
         <div class="pai"id = "card">
-            <img src="./img/user.png" alt="">
+            <img id="imagens" src="./img/lock.png" alt="">
             <h1> RECUPERAR SENHA</h1> 
             <div class="campo">
                 <input type="text" placeholder="Email" id="email" required>
                 <div class="chave">
                     <input type="password" placeholder="Chave de Recuperação" id="key_password" required>
-                    <img id="senhaEscondida" 
+                    <img id="senhaEscondida3" 
                         src="https://cdn-icons-png.flaticon.com/512/9726/9726597.png" 
                         alt="Mostrar/Ocultar Senha">
                 </div>
             </div>
-            <button class="botaolink" id="botao">Envie um para o email</button>
+            <button class="botaolink" id="botao">Confirmar</button>
+            <a href="../telaLogin/index.html" class="link">Voltar para o login -> </a>
         </div>
     </main>
 </body>
-</html>
+</html> 

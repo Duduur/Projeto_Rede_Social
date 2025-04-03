@@ -9,11 +9,12 @@ a{
 }
 
 body{
-    background-image: url(./img/the-new-york-public-library-yEauzeZU6xo-unsplash\ 1.png);
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(./img/the-new-york-public-library-yEauzeZU6xo-unsplash\ 1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .pai{
@@ -23,14 +24,20 @@ body{
     align-items: center;
     background-color: blueviolet;
     height: 720px;
-    margin-top: 15%;
+    margin-top: 10%;
     border-radius: 60px;
     background-color: rgba(87, 2, 120, 0.7  ); /* Fundo com transparência */
 }
 
+.pai #imagens{
+    display: flex;
+    height: 200px;
+    margin-top: 2rem;
+}
+
 .pai h1{
     color: aliceblue;
-    font-size: 50px;
+    font-size: 40px;
     padding-top: 40px;
     font-family: "Patua One", serif;
     font-weight: 400;
@@ -45,7 +52,6 @@ body{
     gap: 20px;
     padding-top: 20px;
 }
-
 .campo input{
     width: 400px;
     height: 77px;
@@ -56,28 +62,37 @@ body{
     font-size: 20px;
 }
 
-.campo .input-group{
-    width: 100%;
-    gap: 20px   ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.senha {
+.senha{
     position: relative;
     display: flex;
     align-items: center;
     width: 400px;
 }
 
-.senha input {
+.senha input{
     width: 100%;
-    padding-right: 40px; 
+    padding-right: 40px;
 }
 
-#senhaEscondida {
+#senhaEscondida2{
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+.chave{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+.chave input{
+    width: 100%;
+    padding-right: 40px;
+}
+#senhaEscondida3{
     position: absolute;
     right: 30px;
     cursor: pointer;
@@ -85,77 +100,22 @@ body{
     height: 24px;
 }
 
-.chave_senha{
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 400px;
-}
-
-.chave_senha input {
-    width: 100%;
-    padding-right: 40px; 
-}
-
-#chaveEscondida {
-    position: absolute;
-    right: 30px;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-}
-
-.checkbox{
+.botaolink{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-}
-
-.checkbox #box{
-   height: 30px;
-   width: 40px;
-}
-
-.checkbox p{
-    font-size: 20px;
-    color: aliceblue;
-}
-
-.button button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 80px;
     margin: 20px;
-    margin-bottom: 20px;
-    height:50px;
-    width: 170px;
-    border-radius: 60px;
-    background-color: #B015CF;
-    color: aliceblue;
-    font-size: 20px;
+    background-color: black;
+    color: azure;
+    width: 250px;
+    font-size: 30px;
+    border-radius: 30px;
 }
-
-.backLogin{
-    background-color: #B015CF;
-    width: 334px;
-    height: 40px;
-    border-radius: 60px;
-}
-.backLogin .final {
-    gap: 10px;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding: 10px;
-}
-
-.backLogin p{
-    font-size: 20px;
-    color:#FFE8E8;
-}
-
-.backLogin a{
-    font-size: 20px;
-    color: #240331;
+.link{
+    color: azure;
+    font-size: 30px;
+    padding-top: 10px;
+    font-family: "Patua One", serif;
+    font-weight: 400;
 }

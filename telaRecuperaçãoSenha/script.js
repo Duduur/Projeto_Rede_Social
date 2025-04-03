@@ -1,8 +1,13 @@
 'use strict'
 
+
+async function resupearSenha() {
+    
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    const senhaInput = document.getElementById("password");
-    const escondido = document.getElementById("senhaEscondida");
+    const senhaInput = document.getElementById("key_password");
+    const escondido = document.getElementById("senhaEscondida3");
 
     const imgOlhoAberto = "https://cdn-icons-png.flaticon.com/512/11502/11502607.png";
     const imgOlhoFechado = "https://cdn-icons-png.flaticon.com/512/9726/9726597.png";
