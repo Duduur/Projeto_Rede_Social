@@ -18,8 +18,20 @@
                <input type="text" placeholder="Nome de Usuario" id="name" required>
                <input type="text" placeholder="Email" id="email" required>
                <div class="input-group">
-                    <input type="text" placeholder="Senha" id="password" required>
+                <div class="senha">
+                    <input type="password" placeholder="Senha" id="password" required>
+                    <img 
+                        id="senhaEscondida" 
+                        src="https://cdn-icons-png.flaticon.com/512/9726/9726597.png" 
+                        alt="Mostrar/Ocultar Senha">
+                </div>
+                <div class="chave_senha">
                     <input type="text" placeholder="Chave de recuperaçao de senha" id="key" required>
+                    <img 
+                        id="chaveEscondida" 
+                        src="https://cdn-icons-png.flaticon.com/512/9726/9726597.png" 
+                        alt="Mostrar/Ocultar Senha">
+                </div>
                </div>
                <input type="text" placeholder="url da foto de perfil" id="img" required>
                <div class="checkbox">
@@ -37,7 +49,6 @@
                     <p>Já tem uma conta?</p>
                     <a href="../tela login/index.html">Conecte-se</a>
                 </div>
-
             </div>
         </div>
     </main>

@@ -124,13 +124,22 @@ p{
     padding-right: 50px; /* Espaço para o botão dentro do input */
 }
 
+.senha {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+.senha input {
+    width: 100%;
+    padding-right: 40px; 
+}
+
 #senhaEscondida {
     position: absolute;
-    transform: translateY(370%);
-    padding-left:300px ;
-    background: none;
-    border: none;
+    right: 10px;
     cursor: pointer;
-    font-size: 1.5em;
-    color: #570278; /* Mantém a estética do design */
+    width: 24px;
+    height: 24px;
 }

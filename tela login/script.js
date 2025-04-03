@@ -48,22 +48,28 @@ const login = async (event) => {
         alert("Erro na conexão com o servidor");
     }
 };
+
 document.addEventListener("keypress", function (event) {
     if (event.key === "Enter") login(event);
 });
 
-const senhaVisivel = () => {
-    const senhaInput = document.getElementById('password');
-    const escondido = document.getElementById('senhaEscondida');
-    
-    if (senhaInput.type === "password") {
-        senhaInput.type = "text";
-        escondido.textContent = "🙈";
-    } else {
-        senhaInput.type = "password";
-        escondido.textContent = "👁️";
-    }
-};
+document.addEventListener("DOMContentLoaded", () => {
+    const senhaInput = document.getElementById("password");
+    const escondido = document.getElementById("senhaEscondida");
+
+    const imgOlhoAberto = "https://cdn-icons-png.flaticon.com/512/11502/11502607.png";
+    const imgOlhoFechado = "https://cdn-icons-png.flaticon.com/512/9726/9726597.png";
+
+    escondido.addEventListener("click", () => {
+        if (senhaInput.type === "password") {
+            senhaInput.type = "text";   
+            escondido.src = imgOlhoAberto; 
+        } else {
+            senhaInput.type = "password";
+            escondido.src = imgOlhoFechado; 
+        }
+    });
+});
 
 
 
