@@ -7,14 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
     <title>Recuperação de senha</title>
 </head>
 <body>
-    <main></main>
-        <div class="pai"id = "card">
+    <main>
+        <div class="pai" id="card">
             <img id="imagens" src="./img/lock.png" alt="">
-            <h1> RECUPERAR SENHA</h1> 
+            <h1>RECUPERAR SENHA</h1>
             <div class="campo">
                 <input type="text" placeholder="Email" id="email" required>
                 <div class="chave">
@@ -24,9 +23,17 @@
                         alt="Mostrar/Ocultar Senha">
                 </div>
             </div>
-            <button class="botaolink" id="botao" type="submit">Confirmar</button>
+            <button class="botaolink" id="botao" type="button">Confirmar</button>
             <a href="../telaLogin/index.html" class="link">Voltar para o login -> </a>
         </div>
+        <dialog id="modal">
+            <h1>Nova Senha</h1>
+            <input type="password" id="senha" placeholder="Senha">
+            <input type="password" id="confirmar" placeholder="Confirmar senha">
+            <button id="botaoModificar">Alterar</button>
+        </dialog>
     </main>
+    
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>

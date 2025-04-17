@@ -1,47 +1,78 @@
 'use strict'
 
-document.getElementById('campo').addEventListener("submit", async function (event) {
-    event.preventDefault();
+let modal = document.getElementById('modal');
+let botaoModificar = document.getElementById('botaoModificar');
+let botaoConfirmar = document.getElementById('botao')
 
-    let email = document.getElementById("email").value;
-    let wordKey = document.getElementById("key_password").value;
-    const url = "https://back-spider.vercel.app/user/RememberPassword";
+const recuperarSenha = async () => {
+    let email = document.getElementById('email').value;
+    let palavra = document.getElementById('key_password').value;
+    let url = "https://back-spider.vercel.app/user/RememberPassword";
 
-    // Verificação dos campos
-    if (!email || !wordKey) {
-        alert('Dados inválidos! Preencha todos os campos.');
-        return; // Evita continuar o código se os dados estão inválidos
-    }
+    if (!email || email == "" || email == null|| email == undefined||
+        palavra == "" || palavra == null || palavra == undefined ||  !palavra) 
+    {
+        alert('Dados não preenchidos corretamente!');
+    } else {
+        let data = {
+            email: email,
+            wordKey: palavra
+        };
 
-    // Montando os dados para enviar
-    let data = {
-        email: email,
-        wordKey: wordKey
-    };
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
 
-    let options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-
-    try {
         const response = await fetch(url, options);
+        const responseData = await response.json();
 
-        if (response.status === 200) {
-            // Se a resposta for sucesso, redireciona para a página de nova senha
-            window.location.href = "nova-senha.html"; // Altere para o caminho correto da sua página
-        } else {
-            alert('Erro ao validar os dados! Verifique se as informações estão corretas.');
+        localStorage.setItem('idUser', responseData.id)
+
+        if(response.ok){
+            botaoConfirmar.onclick = function(){
+                modal.showModal()
+            }
+        }else{
+            alert('Dados inválidos')
         }
-    } catch (error) {
-        console.error('Erro na requisição:', error);
-        alert('Ocorreu um erro ao tentar recuperar a senha. Tente novamente mais tarde.');
     }
-});
+};
 
+const modificarSenha = async function(id) {
+    let novaSenha = document.getElementById('senha').value
+    let confirmarSenha = document.getElementById('confirmar').value
+    let url = `https://back-spider.vercel.app/user/newPassword/${id}`
+
+    if(novaSenha == "" || novaSenha == null || novaSenha == undefined ||
+        confirmarSenha == "" || confirmarSenha == null || confirmarSenha == undefined
+    ){
+        alert('Necessario preencher todos os dados corretamente!')
+    }else{
+        
+        let data = {
+            senha: novaSenha
+        }
+        let options = {
+            method:'PUT',
+            headers:{
+                 'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        const response = await fetch(url, options)
+
+        if(response.ok){
+            alert("Senha Alterada com Sucesso !")
+            return true
+        }else{
+            alert('Não foi possível modificar a senha')
+        }
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const senhaInput = document.getElementById("key_password");
@@ -59,4 +90,20 @@ document.addEventListener("DOMContentLoaded", () => {
             escondido.src = imgOlhoFechado; 
         }
     });
+});
+
+botaoModificar.onclick = async function() {
+    
+    let idUser = localStorage.getItem("idUser")
+
+    const validaPasswword = await modificarSenha(idUser)
+
+    if(validaPasswword){
+        modal.close()
+        window.location.href = "../telaLogin/index.html"
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('botao').addEventListener('click', recuperarSenha);
 });

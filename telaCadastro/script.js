@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             escondido.src = imgOlhoAberto; 
         } else {
             senhaInput.type = "password";
-            escondido.src = imgOlhoFechado; 
+            escondido.src = imgOlhoFechado;     
         }
     });
 });
