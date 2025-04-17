@@ -12,7 +12,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./img/the-new-york-public-library-yEauzeZU6xo-unsplash\ 1.png);
+    background-image: url(../src/img/the-new-york-public-library-yEauzeZU6xo-unsplash\ 1.png);
     background-repeat: no-repeat;
     background-size: cover;
 }

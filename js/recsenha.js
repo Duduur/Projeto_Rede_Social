@@ -100,7 +100,7 @@ botaoModificar.onclick = async function() {
 
     if(validaPasswword){
         modal.close()
-        window.location.href = "../telaLogin/index.html"
+        window.location.href = "../../src/Pages/login.html"
     }
 }
 
