@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (response.status === 201) {
                 alert("Cadastro realizado com sucesso!");
+                window.location.href = "../../src/Pages/login.html"
             } else {
                 alert(`Erro: ${result.message || "Algo deu errado"}`);
             }

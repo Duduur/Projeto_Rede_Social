@@ -1,8 +1,6 @@
 'use strict';
 
-// Aguarda o carregamento do DOM antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
-    // Obtém referência ao botão e adiciona o evento de clique
     document.getElementById('botao').addEventListener('click', login);
     document.getElementById('senhaEscondida').addEventListener('click', senhaVisivel);
 });
@@ -22,7 +20,7 @@ const login = async (event) => {
 
     let data = {
         email: email,
-        senha: senha // Verifique se a API espera 'senha' ou 'password'
+        senha: senha 
     };
 
     const options = {
@@ -35,11 +33,11 @@ const login = async (event) => {
 
     try {
         const response = await fetch(url, options);
-        const result = await response.json(); // Tente capturar a resposta da API
+        const result = await response.json(); 
 
         if (response.ok) {
             alert("Sucesso");
-            window.location.href = "./home.html"; // Certifique-se de que este caminho está correto
+            window.location.href = "../../src/Pages/home.html"; 
         } else {
             alert(result.message || 'Dados inválidos');
         }
