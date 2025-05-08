@@ -58,11 +58,11 @@ function criarPost(post, usuario) {
     icones.className = 'post-icones'
     
     const coracao = document.createElement('img')
-    coracao.src = '/src/img/coracaozinho.png'
+    coracao.src = 'https://cdn-icons-png.flaticon.com/512/833/833472.png' 
     coracao.className = 'post-icone'
     
     const comentario = document.createElement('img')
-    comentario.src = '/src/img/chat.png'
+    comentario.src = 'https://cdn-icons-png.flaticon.com/512/2462/2462719.png'
     comentario.className = 'post-icone'
     
     icones.appendChild(coracao)
@@ -114,6 +114,68 @@ async function preencherStorys() {
         console.error('Erro ao carregar stories:', error)
     }
 }
+
+
+// Criação dos storyss
+let stories = []
+let storyAtual = 0
+
+function criarStory(link, index) {
+    const story = document.getElementById('story')
+    const storyContainer = document.createElement('div')
+    storyContainer.classList.add('story-container')
+
+    const storyImg = document.createElement('img')
+    storyImg.src = link.imagem
+    storyImg.classList.add('story-img')
+
+    storyContainer.appendChild(storyImg)
+    story.appendChild(storyContainer)
+
+    stories.push(link.imagem)
+
+    storyContainer.addEventListener('click', () => {
+        abrirModal(index)
+    })
+}
+
+function abrirModal(index) {
+    const modal = document.getElementById('modalStory')
+    const imagemModal = document.getElementById('imagemStory')
+    storyAtual = index
+    imagemModal.src = stories[storyAtual]
+    modal.style.display = 'flex'
+}
+
+document.querySelector('.fechar').addEventListener('click', () => {
+    document.getElementById('modalStory').style.display = 'none'
+})
+
+window.addEventListener('click', (story) => {
+    const modal = document.getElementById('modalStory')
+    if (story.target === modal) {
+        modal.style.display = 'none'
+    }
+})
+
+
+document.querySelector('.seta.direita').addEventListener('click', () => {
+    if (storyAtual < stories.length - 1) {
+        storyAtual++
+    } else {
+        storyAtual = 0 
+    }
+    document.getElementById('imagemStory').src = stories[storyAtual]
+})
+
+document.querySelector('.seta.esquerda').addEventListener('click', () => {
+    if (storyAtual > 0) {
+        storyAtual--
+    } else {
+        storyAtual = stories.length - 1 
+    }
+    document.getElementById('imagemStory').src = stories[storyAtual]
+})
 
 
 document.addEventListener('DOMContentLoaded', () => {
